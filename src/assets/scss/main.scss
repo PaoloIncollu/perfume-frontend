@@ -1,0 +1,29 @@
+/* Scrollbar generale */
+::-webkit-scrollbar {
+    width: 8px; /* Larghezza della scrollbar */
+    height: 8px; /* Altezza per scrollbar orizzontale */
+  }
+  
+  /* Sfondo della scrollbar (track) */
+  ::-webkit-scrollbar-track {
+    background: transparent; /* Sfondo trasparente */
+  }
+  
+  /* La maniglia (thumb) */
+  ::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, 0.3); /* Colore scuro con trasparenza */
+    border-radius: 10px; /* Angoli arrotondati */
+  }
+  
+  /* Effetto al passaggio del mouse */
+  ::-webkit-scrollbar-thumb:hover {
+    background-color: rgba(0, 0, 0, 0.5); /* Colore più scuro */
+    cursor: pointer; /* Cambia il cursore */
+  }
+  
+  /* Scrollbar nelle versioni moderne di Firefox */
+  * {
+    scrollbar-width: thin; /* Scrollbar sottile */
+    scrollbar-color: rgba(0, 0, 0, 0.3) transparent; /* Thumb e sfondo */
+  }
+  
