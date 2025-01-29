@@ -57,7 +57,7 @@ export default {
 
 <template>
     <main>
-        <div class="container p-3">
+        <div class="container p-3 my-auto">
 
             <div class="d-flex justify-content-center mb-3" v-if="perfumes && perfumes.length > 0">
                 <div>
@@ -82,7 +82,7 @@ export default {
 
                     
                     <div class="my-card rounded">
-                        <img class="pt-2" :src="perfume.img" :alt="perfume.name_perfume">
+                        <img class="py-2" :src="perfume.img" :alt="perfume.name_perfume">
 
                         <div class="my-card-info rounded pt-4 px-2">
 
@@ -107,6 +107,10 @@ export default {
 
 <style lang="scss" scoped>
     main {
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
         width: 100%;
         height: 90vh;
         overflow-y: auto;
@@ -154,8 +158,10 @@ export default {
 
 
     .my-col{
-
+        
         width: 70%;
+        margin-left: auto;
+        margin-right: auto;
     }
 }
 </style>
