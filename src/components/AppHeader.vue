@@ -38,19 +38,31 @@
 
 	header{
 
-		height: 15vh;
-    	background-color: darkgray;
+		height: 10vh;
+    	
 
 		h1{
-			color: #C3EAE7;
-			font-size: 70px;
+			
+			font-size: 60px;
 		}
 
 		.img-logo{
 
-			height: 10vh;
+			height: 8vh;
 		}
 	}
+
+	@media (max-width: 576px) {
+
+
+		header{
+
+			h1{
+				display: none;
+			}
+		}
+	}
+
 
 	
 </style>

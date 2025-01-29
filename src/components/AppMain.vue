@@ -57,61 +57,50 @@ export default {
 
 <template>
     <main>
-        <div class="container p-5">
+        <div class="container p-3">
 
             <div class="d-flex justify-content-center mb-3" v-if="perfumes && perfumes.length > 0">
                 <div>
                     <button @click="ToPrevPage()"
                         :disabled="prevPage == null || clickedButton"
-                        class="my-btn p-2 border-dark-subtle mx-2 rounded-circle"
+                        class="btn btn-light p-2 mx-2 rounded-circle"
                         type="button"><i class="fa-solid fa-chevron-left fa-2xl"></i>
                     </button>
                 </div>
                 <div>
                     <button @click="ToNextPage()"
                         :disabled="nextPage == null || clickedButton"
-                        class="my-btn p-2 border-dark-subtle mx-2 rounded-circle"
+                        class="btn btn-light p-2 mx-2 rounded-circle"
                         type="button"><i class="fa-solid fa-chevron-right fa-2xl"></i>
                     </button>
                 </div>
             </div>
 
-            <div class="row" id="perfumes">
+            <div class="row gy-3" id="perfumes">
 
-                <div class="col-sm-12 col-md-6 col-lg-3 mb-5" v-for="perfume in perfumes" :key="perfume.id">
+                <div class="my-col col-sm-6 col-md-4 col-lg-3 col-xl-2" v-for="perfume in perfumes" :key="perfume.id">
 
-                    <div class="my-card card d-flex  p-2 align-self-stretch flex-grow-2 mx-0">
-                        <img class="card-img-top h-300" :src="perfume.img" :alt="perfume.name_perfume">
+                    
+                    <div class="my-card rounded">
+                        <img class="pt-2" :src="perfume.img" :alt="perfume.name_perfume">
 
-                        <div class="card-body text-center">
-                            <h6 class="card-title mb-3 fw-bold">{{ perfume.name_perfume }}</h6>
-                            <h5><small class="fw-bold">Marca: </small>{{ perfume.brand }}</h5>
-                            <h5><small class="fw-bold">Caratteristiche: </small>{{ perfume.description }}</h5>
-                            <h5><small class="fw-bold">Prezzo: </small>{{ perfume.price }} &euro;</h5>
+                        <div class="my-card-info rounded pt-4 px-2">
+
+                            <div class="d-flex flex-column justify-content-center align-items-center text-center h-100">
+
+                                <h4 class="text-uppercase">{{ perfume.brand }}</h4>
+                                <h5>{{ perfume.name_perfume }}</h5>
+                                <h6>{{ perfume.description }}</h6>
+                                <h6>{{ perfume.size }} ml</h6>
+                                <h6>{{ perfume.price }} &euro;</h6>
+                            </div>
                         </div>
 
                     </div>
+                    
                 </div>
-
+            
             </div>
-
-            <div class="d-flex justify-content-center mb-3" v-if="perfumes && perfumes.length > 0">
-                <div>
-                    <button @click="ToPrevPage()"
-                        :disabled="prevPage == null || clickedButton"
-                        class="my-btn p-2 border-dark-subtle mx-2 rounded-circle"
-                        type="button"><i class="fa-solid fa-chevron-left fa-2xl"></i>
-                    </button>
-                </div>
-                <div>
-                    <button @click="ToNextPage()"
-                        :disabled="nextPage == null || clickedButton"
-                        class="my-btn p-2 border-dark-subtle mx-2 rounded-circle"
-                        type="button"><i class="fa-solid fa-chevron-right fa-2xl"></i>
-                    </button>
-                </div>
-            </div>
-
         </div>
     </main>
 </template>
@@ -119,21 +108,54 @@ export default {
 <style lang="scss" scoped>
     main {
         width: 100%;
-        height: 85vh;
+        height: 90vh;
         overflow-y: auto;
         background-image: url('https://media.douglas.it/medias/ZAxCp7pos-00700105-1-Facciata.jpg?context=bWFzdGVyfHBvaW50LW9mLXNlcnZpY2V8NjEyMjMwfGltYWdlL2pwZWd8YUdaa0wyZzFNQzh4TmpRNU5qazJORGd5T1RJeE5DOWFRWGhEY0Rkd2IzTmZNREEzTURBeE1EVmZNVjlHWVdOamFXRjBZUzVxY0djfDA0M2M3MjAwN2ZmY2E2N2UzMDBiMTkwYzFiZTJiYTU2ZmNjYzliNDg2ZjFhMzc0YTU1MzYwN2RkY2U5NGRkOWE');
         background-size: cover;
 
-        .my-btn{
-
-            background-color: darkgray;
-
-        }
-
         .my-card{
-
-            background-color: darkgray;
+            width: 100%;
+            height: 250px;
+            position: relative;
+            background-color: white;
             color: white;
+
+            img{
+                width: 90%;
+                height: 250px;
+                position: absolute;
+                top: 0;
+                left: 5%;
+                object-fit: contain;
+                object-position: center;
+            }
+
+            .my-card-info{
+                display: none;
+                background-color: rgba($color: #000000, $alpha: 0.5);
+                width: 100%;
+                height: 250px;
+                position: absolute;
+                top: 0;
+                left: 0;
+
+            }
         }
+
+        .my-card:hover .my-card-info {
+            display: block;
+        }
+        
+        
     }
+
+
+@media (max-width: 576px) {
+
+
+    .my-col{
+
+        width: 70%;
+    }
+}
 </style>
